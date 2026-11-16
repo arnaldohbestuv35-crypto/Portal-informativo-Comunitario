@@ -9,7 +9,6 @@
       --bg-body: #18191a;
       --bg-card: #242526;
       --bg-input: #3a3b3c;
-      --bg-hover: #4e4f50;
       --text-primary: #e4e6eb;
       --text-secondary: #b0b3b8;
       --accent-blue: #2d88ff;
@@ -17,512 +16,111 @@
       --green-online: #31a24c;
       --divider: #3e4042;
     }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      -webkit-tap-highlight-color: transparent;
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; -webkit-tap-highlight-color: transparent; }
+    body { background-color: var(--bg-body); color: var(--text-primary); max-width: 500px; margin: 0 auto; min-height: 100vh; overflow-x: hidden; }
+    
+    /* CABEÇALHO COM PRIORIDADE MÁXIMA DE TOQUE */
+    .top-header { 
+      background-color: var(--bg-card); 
+      padding: 10px 14px 0 14px; 
+      position: sticky; 
+      top: 0; 
+      z-index: 99999; 
+      border-bottom: 1px solid var(--divider); 
+      pointer-events: auto;
     }
-
-    body {
-      background-color: var(--bg-body);
-      color: var(--text-primary);
-      max-width: 500px;
-      margin: 0 auto;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    /* TOP HEADER */
-    .top-header {
-      background-color: var(--bg-card);
-      padding: 10px 14px 0 14px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid var(--divider);
-    }
-
-    .header-row-1 {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-
-    .brand-logo {
-      font-size: 26px;
-      font-weight: 800;
-      color: #ffffff;
-      letter-spacing: -0.5px;
-    }
-
-    .header-actions {
-      display: flex;
-      gap: 10px;
-    }
-
-    .circle-btn {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background-color: var(--bg-input);
-      border: none;
-      color: var(--text-primary);
-      font-size: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-    }
-
-    /* NAV TABS */
-    .nav-tabs {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .nav-tab {
-      flex: 1;
-      text-align: center;
-      padding: 10px 0;
-      position: relative;
-      cursor: pointer;
-      color: var(--text-secondary);
-      font-size: 20px;
-      border-bottom: 3px solid transparent;
-    }
-
-    .nav-tab.active {
-      color: var(--accent-blue);
-      border-bottom: 3px solid var(--accent-blue);
-    }
-
-    .badge {
-      position: absolute;
-      top: 4px;
-      right: 18%;
-      background-color: var(--badge-red);
-      color: white;
-      font-size: 10px;
-      font-weight: 700;
-      padding: 1px 5px;
-      border-radius: 10px;
-      border: 2px solid var(--bg-card);
-    }
-
-    /* CREATE POST BAR */
-    .create-post-box {
-      background-color: var(--bg-card);
-      padding: 12px 14px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      border-bottom: 6px solid #121212;
-    }
-
-    .avatar-wrap {
-      position: relative;
-      width: 40px;
-      height: 40px;
-      flex-shrink: 0;
-    }
-
-    .avatar-wrap img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    .online-dot {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 11px;
-      height: 11px;
-      background-color: var(--green-online);
-      border-radius: 50%;
-      border: 2px solid var(--bg-card);
-    }
-
-    .post-input-pill {
-      flex: 1;
-      background-color: var(--bg-input);
-      border: none;
-      border-radius: 20px;
-      padding: 10px 16px;
-      color: var(--text-primary);
-      font-size: 15px;
-      outline: none;
-    }
-
-    .post-input-pill::placeholder {
-      color: var(--text-primary);
-    }
-
-    .photo-btn {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background: none;
-      border: none;
-      color: var(--text-secondary);
-      font-size: 11px;
-      cursor: pointer;
-      gap: 2px;
-    }
-
-    .photo-icon {
-      color: #45bd62;
-      font-size: 20px;
-    }
-
-    /* STORIES CAROUSEL */
-    .stories-section {
-      background-color: var(--bg-card);
-      padding: 12px 0 12px 14px;
-      border-bottom: 6px solid #121212;
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
-
-    .stories-section::-webkit-scrollbar {
-      display: none;
-    }
-
-    .story-card {
-      width: 105px;
-      height: 175px;
-      border-radius: 12px;
-      background-color: var(--bg-input);
-      position: relative;
-      flex-shrink: 0;
-      overflow: hidden;
-      cursor: pointer;
-      border: 1px solid var(--divider);
-    }
-
-    .story-card img.bg-story {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.85);
-    }
-
-    .story-create-bottom {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      height: 55px;
-      background-color: var(--bg-card);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-end;
-      padding-bottom: 8px;
-    }
-
-    .story-plus-btn {
-      position: absolute;
-      top: -16px;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background-color: var(--accent-blue);
-      color: white;
-      font-size: 22px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 3px solid var(--bg-card);
-    }
-
-    .story-name {
-      position: absolute;
-      bottom: 8px;
-      left: 8px;
-      right: 8px;
-      font-size: 12px;
-      font-weight: 600;
-      color: #ffffff;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.8);
-      line-height: 1.2;
-    }
-
-    /* FEED POSTS */
-    .post-card {
-      background-color: var(--bg-card);
-      border-bottom: 6px solid #121212;
-      padding-top: 12px;
-    }
-
-    .post-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 14px;
-      margin-bottom: 10px;
-    }
-
-    .post-author-info {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .post-author-ring {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      padding: 2px;
-      border: 2px solid var(--accent-blue);
-    }
-
-    .post-author-ring img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    .author-name {
-      font-weight: 700;
-      font-size: 15px;
-      color: var(--text-primary);
-    }
-
-    .post-meta {
-      font-size: 12px;
-      color: var(--text-secondary);
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .post-controls {
-      color: var(--text-secondary);
-      font-size: 18px;
-      display: flex;
-      gap: 14px;
-    }
-
-    .post-text {
-      padding: 0 14px 12px 14px;
-      font-size: 15px;
-      line-height: 1.4;
-      color: var(--text-primary);
-    }
-
-    .post-image-container {
-      width: 100%;
-      max-height: 350px;
-      overflow: hidden;
-      background-color: #000;
-    }
-
-    .post-image-container img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: cover;
-    }
-
-    /* STATS & ACTIONS */
-    .post-stats {
-      display: flex;
-      justify-content: space-between;
-      padding: 10px 14px;
-      font-size: 13px;
-      color: var(--text-secondary);
-      border-bottom: 1px solid var(--divider);
-    }
-
-    .post-actions-bar {
-      display: flex;
-      justify-content: space-around;
-      padding: 4px 0;
-    }
-
-    .action-btn {
-      flex: 1;
-      background: none;
-      border: none;
-      color: var(--text-secondary);
-      padding: 8px;
-      font-size: 14px;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      cursor: pointer;
-    }
-
-    .action-btn.liked {
-      color: var(--accent-blue);
-    }
-
-    /* VIEWS */
-    .view-section {
-      display: none;
-    }
-
-    .view-section.active {
-      display: block;
-    }
-
-    .chat-container {
-      background-color: var(--bg-card);
-      height: calc(100vh - 95px);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .chat-topbar {
-      padding: 10px 14px;
-      border-bottom: 1px solid var(--divider);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .call-buttons {
-      display: flex;
-      gap: 14px;
-      color: var(--accent-blue);
-    }
-
-    .call-buttons button {
-      background: none;
-      border: none;
-      color: var(--accent-blue);
-      font-size: 20px;
-      cursor: pointer;
-    }
-
-    .messages-area {
-      flex: 1;
-      padding: 14px;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .msg {
-      max-width: 78%;
-      padding: 9px 14px;
-      border-radius: 18px;
-      font-size: 14px;
-      line-height: 1.35;
-    }
-
-    .msg.received {
-      background-color: var(--bg-input);
-      align-self: flex-start;
-      border-bottom-left-radius: 4px;
-    }
-
-    .msg.sent {
-      background-color: var(--accent-blue);
-      color: white;
-      align-self: flex-end;
-      border-bottom-right-radius: 4px;
-    }
-
-    .emoji-bar {
-      display: flex;
-      gap: 10px;
-      padding: 6px 14px;
-      background-color: var(--bg-body);
-      overflow-x: auto;
-      font-size: 20px;
-    }
-
-    .emoji-bar span {
-      cursor: pointer;
-    }
-
-    .chat-input-area {
-      padding: 10px 14px;
-      display: flex;
-      gap: 8px;
-      border-top: 1px solid var(--divider);
-      background-color: var(--bg-card);
-    }
-
-    .chat-input-area input {
-      flex: 1;
-      background-color: var(--bg-input);
-      border: none;
-      border-radius: 20px;
-      padding: 10px 14px;
-      color: white;
-      outline: none;
-    }
-
-    .send-btn {
-      background-color: var(--accent-blue);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 38px;
-      height: 38px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+    .header-row-1 { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; position: relative; z-index: 100000; }
+    .brand-logo { font-size: 26px; font-weight: 800; color: #ffffff; }
+    .header-actions { display: flex; gap: 10px; }
+    .circle-btn { width: 40px; height: 40px; border-radius: 50%; background-color: var(--bg-input); border: none; color: var(--text-primary); font-size: 18px; display: flex; align-items: center; justify-content: center; cursor: pointer; pointer-events: auto; }
+    
+    .nav-tabs { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 100000; }
+    .nav-tab { flex: 1; text-align: center; padding: 12px 0; position: relative; cursor: pointer; color: var(--text-secondary); font-size: 20px; border-bottom: 3px solid transparent; pointer-events: auto; }
+    .nav-tab.active { color: var(--accent-blue); border-bottom: 3px solid var(--accent-blue); }
+    .badge { position: absolute; top: 4px; right: 18%; background-color: var(--badge-red); color: white; font-size: 10px; font-weight: 700; padding: 1px 5px; border-radius: 10px; }
+    
+    .create-post-box { background-color: var(--bg-card); padding: 12px 14px; display: flex; align-items: center; gap: 10px; border-bottom: 6px solid #121212; position: relative; z-index: 10; }
+    .avatar-wrap { position: relative; width: 40px; height: 40px; flex-shrink: 0; }
+    .avatar-wrap img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+    .online-dot { position: absolute; bottom: 0; right: 0; width: 11px; height: 11px; background-color: var(--green-online); border-radius: 50%; border: 2px solid var(--bg-card); }
+    .post-input-pill { flex: 1; background-color: var(--bg-input); border: none; border-radius: 20px; padding: 10px 16px; color: var(--text-primary); font-size: 15px; outline: none; }
+    .post-input-pill::placeholder { color: var(--text-secondary); }
+    .photo-btn { display: flex; flex-direction: column; align-items: center; background: none; border: none; color: var(--text-secondary); font-size: 11px; cursor: pointer; gap: 2px; padding: 4px; }
+    .photo-icon { color: #45bd62; font-size: 20px; }
+    .publish-btn { background-color: var(--accent-blue); color: white; border: none; padding: 8px 14px; border-radius: 12px; font-weight: bold; cursor: pointer; font-size: 13px; pointer-events: auto; }
+    
+    .stories-section { background-color: var(--bg-card); padding: 12px 0 12px 14px; border-bottom: 6px solid #121212; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; }
+    .story-card { width: 105px; height: 175px; border-radius: 12px; background-color: var(--bg-input); position: relative; flex-shrink: 0; overflow: hidden; cursor: pointer; border: 1px solid var(--divider); }
+    .story-card img.bg-story { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); }
+    .story-create-bottom { position: absolute; bottom: 0; width: 100%; height: 55px; background-color: var(--bg-card); display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding-bottom: 8px; }
+    .story-plus-btn { position: absolute; top: -16px; width: 32px; height: 32px; border-radius: 50%; background-color: var(--accent-blue); color: white; font-size: 22px; display: flex; align-items: center; justify-content: center; border: 3px solid var(--bg-card); }
+    .story-name { position: absolute; bottom: 8px; left: 8px; right: 8px; font-size: 12px; font-weight: 600; color: #ffffff; text-shadow: 0 1px 3px rgba(0,0,0,0.8); }
+    
+    .post-card { background-color: var(--bg-card); border-bottom: 6px solid #121212; padding-top: 12px; }
+    .post-header { display: flex; align-items: center; justify-content: space-between; padding: 0 14px; margin-bottom: 10px; }
+    .post-author-info { display: flex; align-items: center; gap: 10px; }
+    .post-author-ring { width: 42px; height: 42px; border-radius: 50%; padding: 2px; border: 2px solid var(--accent-blue); }
+    .post-author-ring img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+    .author-name { font-weight: 700; font-size: 15px; color: var(--text-primary); }
+    .post-meta { font-size: 12px; color: var(--text-secondary); }
+    .post-text { padding: 0 14px 12px 14px; font-size: 15px; line-height: 1.4; color: var(--text-primary); }
+    .post-image-container { width: 100%; max-height: 350px; overflow: hidden; background-color: #000; }
+    .post-image-container img { width: 100%; height: auto; display: block; object-fit: cover; }
+    .post-stats { display: flex; justify-content: space-between; padding: 10px 14px; font-size: 13px; color: var(--text-secondary); border-bottom: 1px solid var(--divider); }
+    .post-actions-bar { display: flex; justify-content: space-around; padding: 4px 0; }
+    .action-btn { flex: 1; background: none; border: none; color: var(--text-secondary); padding: 8px; font-size: 14px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 6px; cursor: pointer; pointer-events: auto; }
+    .action-btn.liked { color: var(--accent-blue); }
+    
+    .view-section { display: none; }
+    .view-section.active { display: block; }
+    .chat-container { background-color: var(--bg-card); height: calc(100vh - 95px); display: flex; flex-direction: column; }
+    .chat-topbar { padding: 10px 14px; border-bottom: 1px solid var(--divider); display: flex; justify-content: space-between; align-items: center; }
+    .messages-area { flex: 1; padding: 14px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+    .msg { max-width: 78%; padding: 9px 14px; border-radius: 18px; font-size: 14px; line-height: 1.35; }
+    .msg.received { background-color: var(--bg-input); align-self: flex-start; border-bottom-left-radius: 4px; }
+    .msg.sent { background-color: var(--accent-blue); color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
+    .emoji-bar { display: flex; gap: 10px; padding: 6px 14px; background-color: var(--bg-body); overflow-x: auto; font-size: 20px; cursor: pointer; }
+    .chat-input-area { padding: 10px 14px; display: flex; gap: 8px; border-top: 1px solid var(--divider); background-color: var(--bg-card); }
+    .chat-input-area input { flex: 1; background-color: var(--bg-input); border: none; border-radius: 20px; padding: 10px 14px; color: white; outline: none; }
+    .send-btn { background-color: var(--accent-blue); color: white; border: none; border-radius: 50%; width: 38px; height: 38px; font-weight: bold; cursor: pointer; pointer-events: auto; }
   </style>
 </head>
 <body>
 
-  <!-- TOP NAVIGATION -->
   <header class="top-header">
     <div class="header-row-1">
       <div class="brand-logo">facebook</div>
       <div class="header-actions">
         <button class="circle-btn" onclick="focusPostInput()">+</button>
-        <button class="circle-btn">🔍</button>
-        <button class="circle-btn" onclick="clearData()">🗑️</button>
+        <button class="circle-btn" onclick="clearData()" title="Limpar Dados">🗑️</button>
       </div>
     </div>
-
     <nav class="nav-tabs">
-      <div class="nav-tab active" onclick="switchTab('feed', this)">🏠<span class="badge">15+</span></div>
-      <div class="nav-tab" onclick="switchTab('feed', this)">👥<span class="badge">2</span></div>
-      <div class="nav-tab" onclick="switchTab('chat', this)">💬<span class="badge" id="chat-badge">2</span></div>
-      <div class="nav-tab" onclick="switchTab('feed', this)">📺<span class="badge">15+</span></div>
-      <div class="nav-tab" onclick="switchTab('feed', this)">🔔<span class="badge">15+</span></div>
-      <div class="nav-tab" onclick="switchTab('feed', this)">🏪</div>
+      <div class="nav-tab active" onclick="switchTab('feed', this)">🏠</div>
+      <div class="nav-tab" onclick="switchTab('feed', this)">👥</div>
+      <div class="nav-tab" onclick="switchTab('chat', this)">💬<span class="badge" id="chat-badge">1</span></div>
+      <div class="nav-tab" onclick="switchTab('feed', this)">📺</div>
+      <div class="nav-tab" onclick="switchTab('feed', this)">🔔</div>
     </nav>
   </header>
 
-  <!-- FEED SECTION -->
   <main id="feed-view" class="view-section active">
-    
-    <!-- CREATE POST -->
     <div class="create-post-box">
       <div class="avatar-wrap">
         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&q=80" alt="Perfil">
         <span class="online-dot"></span>
       </div>
-      <input type="text" id="new-post-input" class="post-input-pill" placeholder="Em que estás a pensar?" onkeypress="if(event.key==='Enter') publishPost()">
+      <input type="text" id="new-post-input" class="post-input-pill" placeholder="Em que estás a pensar?">
       
-      <!-- Input escondido para escolher foto da galeria do telemóvel -->
       <input type="file" id="image-file-input" accept="image/*" style="display: none;" onchange="handleImageUpload(event)">
-      
       <button class="photo-btn" onclick="document.getElementById('image-file-input').click()">
         <span class="photo-icon">🖼️</span>
         <span>Foto</span>
       </button>
+
+      <button class="publish-btn" onclick="publishPost()">Publicar</button>
     </div>
 
-    <!-- STORIES -->
     <section class="stories-section">
       <div class="story-card" onclick="document.getElementById('image-file-input').click()">
         <img class="bg-story" src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=300&q=80" alt="Criar">
@@ -531,17 +129,11 @@
           <span style="font-size: 12px; font-weight: 600;">Criar história</span>
         </div>
       </div>
-      <div class="story-card">
-        <img class="bg-story" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&q=80" alt="Tua história">
-        <div class="story-name">A tua história</div>
-      </div>
     </section>
 
-    <!-- POSTS CONTAINER -->
     <div id="posts-list"></div>
   </main>
 
-  <!-- CHAT SECTION -->
   <section id="chat-view" class="view-section">
     <div class="chat-container">
       <div class="chat-topbar">
@@ -555,22 +147,14 @@
             <div style="font-size: 11px; color: var(--green-online);">Ativo agora</div>
           </div>
         </div>
-        <div class="call-buttons">
-          <button onclick="alert('A iniciar chamada de áudio...')">📞</button>
-          <button onclick="alert('A iniciar chamada de vídeo...')">📹</button>
-        </div>
       </div>
 
       <div class="messages-area" id="messages-area">
-        <div class="msg received">Saudações! O portal comunitário já está dinâmico e guarda tudo no telemóvel! 🔥</div>
+        <div class="msg received">Bem-vindo ao portal comunitário! Tenta publicar um post agora. 🔥</div>
       </div>
 
-      <div class="emoji-bar">
-        <span onclick="addEmoji('👍')">👍</span>
-        <span onclick="addEmoji('❤️')">❤️</span>
-        <span onclick="addEmoji('😂')">😂</span>
-        <span onclick="addEmoji('🔥')">🔥</span>
-        <span onclick="addEmoji('🇦🇴')">🇦🇴</span>
+      <div class="emoji-bar" onclick="addEmoji('🔥')">
+        <span>👍 ❤️ 😂 🔥 🇦🇴</span>
       </div>
 
       <div class="chat-input-area">
@@ -583,17 +167,15 @@
   <script>
     let temporaryImageBase64 = null;
 
-    // Carregar posts guardados ao abrir a página
     document.addEventListener("DOMContentLoaded", loadPosts);
 
     function switchTab(viewName, tabElement) {
       document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
       tabElement.classList.add('active');
       document.querySelectorAll('.view-section').forEach(v => v.classList.remove('active'));
-      
       if (viewName === 'chat') {
         document.getElementById('chat-view').classList.add('active');
-        document.getElementById('chat-badge').style.display = 'none';
+        document.getElementById('chat-badgestyle') && (document.getElementById('chat-badge').style.display = 'none');
       } else {
         document.getElementById('feed-view').classList.add('active');
       }
@@ -604,15 +186,13 @@
       document.getElementById('new-post-input').focus();
     }
 
-    // Processar imagem escolhida da galeria do telemóvel
     function handleImageUpload(event) {
       const file = event.target.files[0];
       if (!file) return;
-
       const reader = new FileReader();
-      reader.onload = function(uploadEvent) {
-        temporaryImageBase64 = uploadEvent.target.result;
-        alert("Foto selecionada com sucesso! Agora escreve o que pensas e clica no botão de publicar.");
+      reader.onload = function(e) {
+        temporaryImageBase64 = e.target.result;
+        alert("Imagem carregada com sucesso! Clica em 'Publicar'.");
       };
       reader.readAsDataURL(file);
     }
@@ -620,8 +200,12 @@
     function publishPost() {
       const input = document.getElementById('new-post-input');
       const text = input.value.trim();
-      if (!text && !temporaryImageBase64) return;
+      if (!text && !temporaryImageBase64) {
+        alert("Escreve algo ou escolhe uma foto antes de publicar!");
+        return;
+      }
 
+      const posts = JSON.parse(localStorage.getItem('community_posts')) || [];
       const newPost = {
         id: Date.now(),
         text: text,
@@ -631,8 +215,6 @@
         liked: true
       };
 
-      // Guardar no LocalStorage do telemóvel
-      let posts = JSON.parse(localStorage.getItem('community_posts')) || [];
       posts.unshift(newPost);
       localStorage.setItem('community_posts', JSON.stringify(posts));
 
@@ -645,14 +227,13 @@
       const container = document.getElementById('posts-list');
       let posts = JSON.parse(localStorage.getItem('community_posts')) || [];
 
-      // Se não houver nenhum post guardado, cria um post inicial de boas-vindas
       if (posts.length === 0) {
         posts = [{
           id: 1,
           text: "O povo já pede bis, foi épico e uma experiência totalmente única e exclusiva!",
           image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=500&q=80",
           time: "9/11 • 🌐",
-          likes: 142,
+          likes: 42,
           liked: false
         }];
         localStorage.setItem('community_posts', JSON.stringify(posts));
@@ -660,8 +241,7 @@
 
       container.innerHTML = '';
       posts.forEach(post => {
-        const imageHTML = post.image ? `<div class="post-image-container"><img src="${post.image}" alt="Post image"></div>` : '';
-        
+        const imageHTML = post.image ? `<div class="post-image-container"><img src="${post.image}" alt="Post"></div>` : '';
         const postHTML = `
           <article class="post-card">
             <div class="post-header">
@@ -674,21 +254,17 @@
                   <div class="post-meta">${post.time}</div>
                 </div>
               </div>
-              <div class="post-controls" onclick="deletePost(${post.id})" style="cursor: pointer;" title="Eliminar post">🗑️</div>
+              <div onclick="deletePost(${post.id})" style="cursor: pointer; padding: 6px;" title="Apagar">🗑️</div>
             </div>
-
             ${post.text ? `<div class="post-text">${post.text}</div>` : ''}
             ${imageHTML}
-
             <div class="post-stats">
               <span>👍❤️ ${post.likes}</span>
               <span>Comentários</span>
             </div>
-
             <div class="post-actions-bar">
               <button class="action-btn ${post.liked ? 'liked' : ''}" onclick="toggleLike(${post.id})">👍 Gosto</button>
               <button class="action-btn" onclick="switchTab('chat', document.querySelectorAll('.nav-tab')[2])">💬 Comentar</button>
-              <button class="action-btn">↗️ Partilhar</button>
             </div>
           </article>
         `;
@@ -710,7 +286,7 @@
     }
 
     function deletePost(id) {
-      if (!confirm("Tens a certeza que queres eliminar esta publicação?")) return;
+      if (!confirm("Tens a certeza que queres apagar este post?")) return;
       let posts = JSON.parse(localStorage.getItem('community_posts')) || [];
       posts = posts.filter(p => p.id !== id);
       localStorage.setItem('community_posts', JSON.stringify(posts));
@@ -718,7 +294,7 @@
     }
 
     function clearData() {
-      if (confirm("Queres limpar todos os dados guardados?")) {
+      if (confirm("Limpar todos os posts guardados?")) {
         localStorage.clear();
         location.reload();
       }
@@ -730,22 +306,14 @@
       input.focus();
     }
 
-        function sendMessage() {
+    function sendMessage() {
       const input = document.getElementById('chat-input');
       const text = input.value.trim();
       if (!text) return;
-
       const area = document.getElementById('messages-area');
       area.insertAdjacentHTML('beforeend', `<div class="msg sent">${text}</div>`);
       input.value = '';
       area.scrollTop = area.scrollHeight;
-
-      setTimeout(() => {
-        area.insertAdjacentHTML('beforeend', `<div class="msg received">Mensagem recebida e guardada com sucesso! 👌</div>`);
-        area.scrollTop = area.scrollHeight;
-      }, 900);
-    }
-
     }
   </script>
 </body>
